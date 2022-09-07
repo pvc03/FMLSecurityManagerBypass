@@ -1,0 +1,5 @@
+# FMLSecurityManagerBypass
+由于在sun.reflect.Reflection中定义了一个fieldFilterMap  
+java反射在获取security字段的时候会报异常  
+但getDeclaredField从getDeclaredFields0本地方法获取，所以直接反射调用这个方法获取一个字段数组  
+正好FMLSecurityManager没有禁用反射，直接把这个字段set null就可以了
